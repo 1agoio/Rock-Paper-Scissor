@@ -4,50 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <script>
         
-       function player(){
-            let playerChoice = prompt('Choose between rock, paper, and scissor');
-            console.log(playerChoice);
-            playerChoiceLow = playerChoice.toLowerCase();
-            return playerChoiceLow
-            console.log(playerChoiceLow);
-        }
-        function getComputerChoice(min = 0, max = 3){
-            let difference = max - min;
-
-            // generate random number 
-            let rand = Math.random();
-
-            // multiply with difference 
-            rand = Math.floor( rand * difference);
-
-            // add with min value 
-            rand = rand + min;
-
-            console.log(rand);
-
-
-
+        function RPS(){
+            //defining variables and properties
+            let playerChoice = prompt('Choose between rock, paper, and scissors');
+            if(playerChoice !== null){
+                let playerChoiceLow = playerChoice.toLowerCase();
+                console.log(playerChoiceLow);
             let computerChoice = '';
-            if (rand === 0){
-                computerChoice = 'rock';
-                console.log('computer chose rock');
-            } else if (rand === 1) {
-                computerChoice = 'paper';
-                console.log('computer chose paper');
-            } else if (rand === 2){
-                computerChoice = 'scissor';
-                console.log('computer chose scissor');
-            } else console.log('something went wrong here');
+            let min = 0;
+            let max = 3;
+            let difference = max - min;
+            let rand = Math.random();
+        rand = Math.floor( rand * difference);
+        rand = rand + min;
+        console.log(rand);
 
-            console.log(rand);
+        if (rand === 0){
+        computerChoice = 'rock';
+        console.log('computer chose rock');
+        console.log(rand);
+        } else if (rand === 1) {
+        computerChoice = 'paper';
+        console.log('computer chose paper');
+        console.log(rand);
+        } else if (rand === 2){
+        computerChoice = 'scissors';
+        console.log('computer chose scissors');
+        console.log(rand);
+        } else console.log('something went wrong here');
+        console.log(computerChoice);
+        function checkWinner(){
+            if(playerChoiceLow == computerChoice){
+                console.log("it's a draw");
+            } else if(playerChoiceLow === 'rock' && computerChoice === 'scissors'){
+                console.log('You win');
+            } else if(playerChoiceLow === 'paper' && computerChoice === 'rock'){
+                console.log('You win');
+            } else if(playerChoiceLow === 'scissors' && computerChoice === 'paper'){
+                console.log('You win');
+            } else if(playerChoiceLow === 'scissors' && computerChoice === 'rock'){
+                console.log('You lost');
+            } else if(playerChoiceLow === 'rock' && computerChoice === 'paper'){
+                console.log('You lost');
+            } else if(playerChoiceLow === 'paper' && computerChoice === 'scissors'){
+                console.log('You lost');
+            } 
         }
-        player();
-        getComputerChoice();
+
+        
+        }
+        else {
+                console.log('game cancelled');
+            }
+            checkWinner();
+            } 
+            
+        RPS();
+        
     </script>
 </body>
 </html>
