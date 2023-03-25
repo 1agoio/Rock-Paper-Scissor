@@ -9,59 +9,93 @@
 <body>
     <script>
         
+            
+            
+            let draw = false;
+            let playerWin = false;
+            let computerWin = false;
+            let playerWins = 0;
+            let computerWins = 0;
+            let draws = 0;
         function RPS(){
             //defining variables and properties
             let playerChoice = prompt('Choose between rock, paper, and scissors');
             if(playerChoice !== null){
-                let playerChoiceLow = playerChoice.toLowerCase();
-                console.log(playerChoiceLow);
-            let computerChoice = '';
+                let computerChoice = '';
             let min = 0;
             let max = 3;
             let difference = max - min;
             let rand = Math.random();
+                let playerChoiceLow = playerChoice.toLowerCase();
+            console.log(playerChoiceLow);
+
         rand = Math.floor( rand * difference);
         rand = rand + min;
-        console.log(rand);
+        //console.log(rand);
 
         if (rand === 0){
         computerChoice = 'rock';
         console.log('computer chose rock');
-        console.log(rand);
+        //console.log(rand);
         } else if (rand === 1) {
         computerChoice = 'paper';
         console.log('computer chose paper');
-        console.log(rand);
+        //console.log(rand);
         } else if (rand === 2){
         computerChoice = 'scissors';
         console.log('computer chose scissors');
-        console.log(rand);
+        //console.log(rand);
         } else console.log('something went wrong here');
         console.log(computerChoice);
         function checkWinner(){
             if(playerChoiceLow == computerChoice){
                 console.log("it's a draw");
+                draw = true;
+                draws++;
             } else if(playerChoiceLow === 'rock' && computerChoice === 'scissors'){
                 console.log('You win');
+                playerWin = true;
             } else if(playerChoiceLow === 'paper' && computerChoice === 'rock'){
                 console.log('You win');
+                playerWin = true;
             } else if(playerChoiceLow === 'scissors' && computerChoice === 'paper'){
                 console.log('You win');
+                playerWin = true;
             } else if(playerChoiceLow === 'scissors' && computerChoice === 'rock'){
                 console.log('You lost');
+                computerWin = true;
             } else if(playerChoiceLow === 'rock' && computerChoice === 'paper'){
                 console.log('You lost');
+                computerWin = true;
             } else if(playerChoiceLow === 'paper' && computerChoice === 'scissors'){
                 console.log('You lost');
+                computerWin = true;
             } 
         }
-
+        function matches(){
+            if(playerWin){
+                playerWins++;
+                playerWin = false;
+                console.log("player won :" , playerWins , "times" );
+                RPS();
+            } else if (computerWin){
+                computerWins++;
+                computerWin = false;
+                console.log("computer won :" , computerWins, "times")
+                RPS();
+            } else if(draw){
+                
+                console.log('game tied', draws , 'times' );
+                RPS();
+            }
+        }
         
         }
         else {
                 console.log('game cancelled');
             }
             checkWinner();
+            matches();
             } 
             
         RPS();
