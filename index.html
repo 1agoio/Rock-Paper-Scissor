@@ -9,10 +9,13 @@
 <body>
     <script>
         
-       
-        let playerChoice = prompt('Choose between rock, paper, and scissor');
-        console.log(playerChoice)
-        
+       function player(){
+            let playerChoice = prompt('Choose between rock, paper, and scissor');
+            console.log(playerChoice);
+            playerChoiceLow = playerChoice.toLowerCase();
+            return playerChoiceLow
+            console.log(playerChoiceLow);
+        }
         function getComputerChoice(min = 0, max = 3){
             let difference = max - min;
 
@@ -43,6 +46,7 @@
 
             console.log(rand);
         }
+        player();
         getComputerChoice();
     </script>
 </body>
