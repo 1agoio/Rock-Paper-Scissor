@@ -12,7 +12,7 @@
     <button type="button" id="scissors" onclick="scissors()">Scissors</button>
 
     <div>
-        
+
     </div>
     <script>
         
@@ -25,23 +25,31 @@
             let playerWins = 0;
             let computerWins = 0;
             let draws = 0;
+            let playerToPlay = true;
+            if(playerToPlay){
             function rock(){
                 playerChoice = "rock";
                 console.log("rock");
+                playerToPlay = false;
             }
             function paper(){
                 playerChoice = "paper";
                 console.log("paper");
+                playerToPlay = false;
             }
             function scissors(){
                 playerChoice = "scissor"
                 console.log("scissors");
+                playerToPlay = false;
             }
+        }
         function RPS(){
             //player decision
             
             //making sure the games only runs if the player makes a choice
             if(playerChoice !== null){
+                //make the player choice be case sensitive
+                let playerChoiceLow;
                 //variables for the random option of the computer
                 let computerChoice = '';
             let min = 0;
@@ -50,50 +58,56 @@
             let rand = Math.random();
             rand = Math.floor( rand * difference);
         rand = rand + min;
-            //make the player choice be case sensitive
-                let playerChoiceLow;
-            console.log(playerChoiceLow);
+            
+            //console.log(playerChoiceLow);
 
-       
+       if(!playerToPlay){
         //console.log(rand);
                 //computer making a choice
         if (rand === 0){
         computerChoice = 'rock';
         console.log('computer chose rock');
+        playerToPlay = true;
         //console.log(rand);
         } else if (rand === 1) {
         computerChoice = 'paper';
         console.log('computer chose paper');
+        playerToPlay = true;
         //console.log(rand);
         } else if (rand === 2){
         computerChoice = 'scissors';
         console.log('computer chose scissors');
+        playerToPlay = true;
         //console.log(rand);
         } else console.log('something went wrong here');
         console.log(computerChoice);
+        playerToPlay = true;
+    }
         //check who won the game
+    
+
         function checkWinner(){
             if(playerChoiceLow == computerChoice){
-                console.log("it's a draw");
+                alert("it's a draw");
                 draw = true;
                 draws++;
             } else if(playerChoiceLow === 'rock' && computerChoice === 'scissors'){
-                console.log('You win');
+                alert('You win');
                 playerWin = true;
             } else if(playerChoiceLow === 'paper' && computerChoice === 'rock'){
-                console.log('You win');
+                alert('You win');
                 playerWin = true;
             } else if(playerChoiceLow === 'scissors' && computerChoice === 'paper'){
-                console.log('You win');
+                alert('You win');
                 playerWin = true;
             } else if(playerChoiceLow === 'scissors' && computerChoice === 'rock'){
-                console.log('You lost');
+                alert('You lost');
                 computerWin = true;
             } else if(playerChoiceLow === 'rock' && computerChoice === 'paper'){
-                console.log('You lost');
+                alert('You lost');
                 computerWin = true;
             } else if(playerChoiceLow === 'paper' && computerChoice === 'scissors'){
-                console.log('You lost');
+                alert('You lost');
                 computerWin = true;
             } 
         }
@@ -102,12 +116,12 @@
             if(playerWin){
                 playerWins++;
                 playerWin = false;
-                console.log("player won :" , playerWins , "times" );
+                alert("player won :" , playerWins , "times" );
                 RPS();
             } else if (computerWin){
                 computerWins++;
                 computerWin = false;
-                console.log("computer won :" , computerWins, "times")
+                alert("computer won :" , computerWins, "times");
                 RPS();
             } else if(draw){
                 
