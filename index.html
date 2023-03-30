@@ -7,32 +7,56 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <button type="button" id="rock" onclick="rock()">Rock</button>
+    <button type="button" id="paper" onclick="paper()">Paper</button>
+    <button type="button" id="scissors" onclick="scissors()">Scissors</button>
+
+    <div>
+        
+    </div>
     <script>
         
             
-            
+            //defining variables
+            let playerChoice;
             let draw = false;
             let playerWin = false;
             let computerWin = false;
             let playerWins = 0;
             let computerWins = 0;
             let draws = 0;
+            function rock(){
+                playerChoice = "rock";
+                console.log("rock");
+            }
+            function paper(){
+                playerChoice = "paper";
+                console.log("paper");
+            }
+            function scissors(){
+                playerChoice = "scissor"
+                console.log("scissors");
+            }
         function RPS(){
-            //defining variables and properties
-            let playerChoice = prompt('Choose between rock, paper, and scissors');
+            //player decision
+            
+            //making sure the games only runs if the player makes a choice
             if(playerChoice !== null){
+                //variables for the random option of the computer
                 let computerChoice = '';
             let min = 0;
             let max = 3;
             let difference = max - min;
             let rand = Math.random();
-                let playerChoiceLow = playerChoice.toLowerCase();
+            rand = Math.floor( rand * difference);
+        rand = rand + min;
+            //make the player choice be case sensitive
+                let playerChoiceLow;
             console.log(playerChoiceLow);
 
-        rand = Math.floor( rand * difference);
-        rand = rand + min;
+       
         //console.log(rand);
-
+                //computer making a choice
         if (rand === 0){
         computerChoice = 'rock';
         console.log('computer chose rock');
@@ -47,6 +71,7 @@
         //console.log(rand);
         } else console.log('something went wrong here');
         console.log(computerChoice);
+        //check who won the game
         function checkWinner(){
             if(playerChoiceLow == computerChoice){
                 console.log("it's a draw");
@@ -72,6 +97,7 @@
                 computerWin = true;
             } 
         }
+        //points system
         function matches(){
             if(playerWin){
                 playerWins++;
@@ -92,7 +118,14 @@
         
         }
         else {
+            //checking if the game is not played
                 console.log('game cancelled');
+                function checkWinner(){
+
+                }
+                function matches(){
+                    
+                }
             }
             checkWinner();
             matches();
