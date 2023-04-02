@@ -1,6 +1,27 @@
-rock paper scissors
-prompt the player to make a choice
-make the computer pick a random option between rock, paper, scissor
-see who win the game
-announce it
-make it to last multiple games
+//rock paper scissors
+//prompt the player to make a choice
+//make the computer pick a random option between rock, paper, scissor
+//see who win the game
+//announce it
+//make it to last multiple games
+
+if(playerToPlay){
+    function rock(){
+        playerChoice = "rock";
+        console.log("rock");
+        playerToPlay = false;
+        
+    }
+    function paper(){
+        playerChoice = "paper";
+        console.log("paper");
+        playerToPlay = false;
+        computerPlay();
+    }
+    function scissors(){
+        playerChoice = "scissor"
+        console.log("scissors");
+        playerToPlay = false;
+        computerPlay();
+    }
+}
