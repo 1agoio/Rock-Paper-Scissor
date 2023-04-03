@@ -62,17 +62,17 @@
             rand = rand + min;
             if (rand === 0){
                 computerChoice = 'rock';
-                console.log(computerChoice);
+                alert("computer played: " + computerChoice);
                 playerToPlay = true;
                 //console.log(rand);
                 } else if (rand === 1) {
                 computerChoice = 'paper';
-                console.log(computerChoice);
+                alert("computer played: " + computerChoice);
                 playerToPlay = true;
                 //console.log(rand);
                 } else if (rand === 2){
                 computerChoice = 'scissors';
-                console.log(computerChoice);
+                alert("computer played: " + computerChoice);
                 playerToPlay = true;
                 //console.log(rand);
                 } 
@@ -110,16 +110,16 @@
             if(playerWin){
                 playerWins++;
                 playerWin = false;
-                alert("player won :" , playerWins , "times" );
+                alert("player won : " + playerWins + " times" );
                
             } else if (computerWin){
                 computerWins++;
                 computerWin = false;
-                alert("computer won :" , computerWins, "times");
+                alert("computer won : " + computerWins + " times");
                
             } else if(draw){
                 
-                console.log('game tied', draws , 'times' );
+                console.log('game tied '+ draws + ' times' );
                 
             }
         
